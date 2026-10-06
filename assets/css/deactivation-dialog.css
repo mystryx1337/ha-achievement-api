@@ -1,0 +1,252 @@
+/**
+ * HA Achievement API: Deactivation Dialog Styles
+ * Modern, accessible modal matching WordPress core administration aesthetic.
+ */
+
+.ha-deactivate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: rgba(15, 23, 42, 0.68);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.ha-deactivate-overlay.is-active {
+    display: flex;
+    opacity: 1;
+}
+
+.ha-deactivate-modal {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.08);
+    max-width: 520px;
+    width: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #1e293b;
+    transform: scale(0.96);
+    transition: transform 0.2s ease-out;
+    box-sizing: border-box;
+}
+
+.ha-deactivate-overlay.is-active .ha-deactivate-modal {
+    transform: scale(1);
+}
+
+.ha-deactivate-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ha-deactivate-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.ha-deactivate-title-icon {
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ha-deactivate-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    color: #94a3b8;
+    padding: 6px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ha-deactivate-close:hover {
+    color: #0f172a;
+    background-color: #e2e8f0;
+}
+
+.ha-deactivate-body {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.ha-deactivate-intro {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #334155;
+    margin: 0 0 16px 0;
+}
+
+.ha-deactivate-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ha-deactivate-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 9px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+}
+
+.ha-deactivate-option:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.ha-deactivate-option input[type="radio"] {
+    margin: 3px 0 0 0 !important;
+    cursor: pointer;
+}
+
+.ha-option-text {
+    flex: 1;
+}
+
+.ha-option-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.ha-option-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.ha-option-desc {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #64748b;
+}
+
+.ha-option-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.ha-badge-safe {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.ha-badge-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* Selected Card Highlight */
+.ha-option-safe.is-selected {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+.ha-option-safe.is-selected .ha-option-title {
+    color: #065f46;
+}
+
+.ha-option-danger.is-selected {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+.ha-option-danger.is-selected .ha-option-title {
+    color: #991b1b;
+}
+
+.ha-deactivate-notice {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 10px 14px;
+    border-radius: 7px;
+    border-left: 3px solid #0284c7;
+}
+
+.ha-deactivate-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.ha-deactivate-footer .button {
+    height: 36px;
+    line-height: 34px;
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-sizing: border-box;
+}
+
+.ha-deactivate-btn-confirm {
+    background: #2563eb !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+.ha-deactivate-btn-confirm:hover,
+.ha-deactivate-btn-confirm:focus {
+    background: #1d4ed8 !important;
+    border-color: #1e40af !important;
+    color: #ffffff !important;
+}
+
+.ha-btn-spinner {
+    display: inline-block;
+    animation: haSpin 1s linear infinite;
+}
+
+@keyframes haSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

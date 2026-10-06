@@ -1,0 +1,1255 @@
+/**
+ * HA Achievement API - Frontend Styling (Ultra-Kompakt, Seriöses Enterprise-Design)
+ *
+ * Optimiert für Seitenleisten, kompakte Container und hohe Informationsdichte.
+ *
+ * @package HA_Achievement_API
+ */
+
+/* ==========================================================================
+   BASIS & RESET
+   ========================================================================== */
+.ha-missions-container,
+.ha-profile-card,
+.ha-badges-showcase,
+.ha-leaderboard-container,
+.ha-verify-container {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    margin: 12px 0;
+    max-width: 100%;
+}
+
+.ha-missions-container *,
+.ha-profile-card *,
+.ha-badges-showcase *,
+.ha-leaderboard-container *,
+.ha-verify-container * {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. LERN-MISSIONS-DASHBOARD (SEITENLEISTEN-TEASER & DROPDOWN)
+   ========================================================================== */
+.ha-missions-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ha-missions-container:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+/* 1.1 TEASER-KARTE (Kompakte Ansicht im geschlossenen Zustand) */
+.ha-teaser-card {
+    padding: 11px 13px;
+    background: #ffffff;
+}
+
+.ha-teaser-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.ha-teaser-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+/* Seriöses Puls-Beacon (Symbol, das zum Anklicken einlädt) */
+.ha-beacon-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.ha-beacon-icon {
+    font-size: 13px;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.ha-beacon-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: 1.5px solid #ffffff;
+    z-index: 3;
+}
+
+.ha-beacon-ring {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.45);
+    animation: haBeaconPulse 2.2s infinite ease-out;
+    z-index: 1;
+}
+
+@keyframes haBeaconPulse {
+    0% { transform: scale(0.5); opacity: 1; }
+    80% { transform: scale(2.4); opacity: 0; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+.ha-teaser-titles {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ha-teaser-kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
+}
+
+.ha-teaser-kicker {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    line-height: 1.2;
+}
+
+.ha-teaser-lvl-tag {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #334155;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 0.5px 5px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.ha-teaser-source {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+.ha-teaser-xp-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #475569;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ha-teaser-xp-pill .ha-xp-val {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.ha-teaser-xp-pill .ha-xp-sep {
+    color: #94a3b8;
+    margin: 0 1px;
+}
+
+.ha-teaser-xp-pill .ha-xp-max {
+    color: #64748b;
+    font-size: 9px;
+}
+
+/* 1.2 FORTSCHRITTSBALKEN (Dezent & Fein) */
+.ha-progress-block {
+    margin-bottom: 8px;
+}
+
+.ha-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 3px;
+}
+
+.ha-progress-meta strong {
+    color: #0f172a;
+}
+
+.ha-progress-percent {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.ha-progress-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+    height: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ha-progress-bar {
+    background: linear-gradient(90deg, #2563eb 0%, #059669 100%);
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+/* 1.3 TEASER-FOKUS (Nächste anstehende Aufgabe) */
+.ha-teaser-focus {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 7px 9px;
+    margin-bottom: 9px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+}
+
+.ha-teaser-focus:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.ha-focus-lead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.ha-focus-tag {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #2563eb;
+}
+
+.ha-focus-tag.ha-tag-done {
+    color: #059669;
+}
+
+.ha-focus-xp {
+    font-size: 9px;
+    font-weight: 700;
+    color: #475569;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+.ha-focus-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.ha-focus-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.ha-focus-chevron {
+    font-size: 10px;
+    color: #94a3b8;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ha-missions-container.is-expanded .ha-focus-chevron {
+    transform: rotate(180deg);
+}
+
+/* 1.4 ACTION BAR */
+.ha-teaser-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ha-btn-primary.ha-btn-continue {
+    flex: 1;
+    background: #2563eb;
+    color: #ffffff;
+    border: 1px solid #1d4ed8;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.ha-btn-primary.ha-btn-continue:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+.ha-btn-secondary.ha-dropdown-toggle {
+    background: #ffffff;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+}
+
+.ha-btn-secondary.ha-dropdown-toggle:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.ha-toggle-sparkle {
+    color: #2563eb;
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.ha-btn-secondary.ha-dropdown-toggle:hover .ha-toggle-sparkle {
+    transform: rotate(45deg);
+}
+
+/* ==========================================================================
+   1.5 AUSKLAPPBARE DETAILS (DROPDOWN-DRAWER)
+   ========================================================================== */
+.ha-missions-dropdown-drawer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-top: 1px solid transparent;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.2s ease;
+}
+
+.ha-missions-container.is-expanded .ha-missions-dropdown-drawer {
+    max-height: 3500px;
+    opacity: 1;
+    border-top: 1px solid #e2e8f0;
+}
+
+.ha-drawer-inner {
+    padding: 10px;
+    background: #fcfcfd;
+}
+
+/* Filter-Buttons */
+.ha-missions-filters {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.ha-filter-btn {
+    background: #ffffff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ha-filter-btn:hover,
+.ha-filter-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+}
+
+/* Kapitel Akkordeon */
+.ha-chapters-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ha-chapter-block {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ffffff;
+    transition: border-color 0.15s;
+}
+
+.ha-chapter-block.is-complete {
+    border-color: #a7f3d0;
+}
+
+.ha-chapter-header {
+    background: #f8fafc;
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s;
+}
+
+.ha-chapter-header:hover {
+    background: #f1f5f9;
+}
+
+.ha-chapter-icon {
+    font-size: 13px;
+    line-height: 1;
+}
+
+.ha-chapter-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-grow: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+.ha-chapter-name {
+    font-weight: 600;
+    font-size: 11px;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ha-chapter-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.ha-chapter-quick-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.ha-chapter-quick-cta:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+/* Source Pills */
+.ha-source-pill-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 0 4px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.ha-source-pill-micro {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 8.5px;
+    font-weight: 700;
+    background: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 0 4px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.ha-chapter-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.badge-pending {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.badge-success {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.ha-accordion-toggle {
+    font-size: 9px;
+    color: #94a3b8;
+    transition: transform 0.2s ease;
+}
+
+.ha-chapter-block.is-open .ha-accordion-toggle {
+    transform: rotate(180deg);
+}
+
+.ha-chapter-body {
+    display: none;
+    border-top: 1px solid #f1f5f9;
+}
+
+.ha-chapter-block.is-open .ha-chapter-body {
+    display: block;
+}
+
+/* Aufgaben-Liste */
+.ha-task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ha-task-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 9px;
+    border-bottom: 1px solid #f8fafc;
+    transition: background-color 0.15s;
+}
+
+.ha-task-item:last-child {
+    border-bottom: none;
+}
+
+.ha-task-item.task-completed {
+    background: #fafcfb;
+}
+
+.ha-task-item:hover {
+    background: #f8fafc;
+}
+
+.ha-task-status-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.ha-icon-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    background: #10b981;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.ha-icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid #cbd5e1;
+    color: transparent;
+    border-radius: 50%;
+}
+
+.ha-task-content {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.ha-task-title-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.ha-task-title {
+    font-size: 11.5px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.task-completed .ha-task-title {
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+.ha-task-xp {
+    font-size: 9px;
+    font-weight: 700;
+    color: #2563eb;
+    background: #eff6ff;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+.ha-task-hint {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.3;
+    background: #f8fafc;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border-left: 2px solid #38bdf8;
+}
+
+.ha-task-timestamp {
+    font-size: 9px;
+    color: #94a3b8;
+    margin-top: 1px;
+}
+
+.ha-task-action {
+    flex-shrink: 0;
+}
+
+.ha-action-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background-color 0.15s;
+    white-space: nowrap;
+}
+
+.ha-action-btn:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+}
+
+.ha-done-pill {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #047857;
+    background: #ecfdf5;
+    padding: 1px 6px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   2. PROFILKARTE (KOMPAKT & SERIÖS)
+   ========================================================================== */
+.ha-profile-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    padding: 12px 14px;
+    max-width: 360px;
+}
+
+.ha-profile-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ha-profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+}
+
+.ha-profile-main-info {
+    flex-grow: 1;
+}
+
+.ha-profile-name {
+    margin: 0 0 1px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.ha-profile-rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #d97706;
+}
+
+.ha-profile-level-bubble {
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.ha-bubble-label {
+    display: block;
+    font-size: 8px;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.ha-bubble-val {
+    font-size: 15px;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1.1;
+}
+
+.ha-xp-info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    margin-bottom: 3px;
+    color: #64748b;
+}
+
+.ha-profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.ha-stat-box {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    padding: 5px 2px;
+    border-radius: 5px;
+}
+
+.ha-stat-icon {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.ha-stat-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    display: block;
+    line-height: 1.1;
+}
+
+.ha-stat-lbl {
+    font-size: 8.5px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   3. BADGE VITRINE (KOMPAKT & SERIÖS)
+   ========================================================================== */
+.ha-badges-showcase {
+    margin: 14px 0;
+}
+
+.ha-badges-heading {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.ha-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+}
+
+.ha-badge-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+}
+
+.ha-badge-card.badge-unlocked {
+    border-color: #cbd5e1;
+}
+
+.ha-badge-card.badge-unlocked:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.ha-badge-card.badge-locked {
+    opacity: 0.6;
+    background: #f8fafc;
+}
+
+.ha-badge-icon-wrap {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+}
+
+.ha-badge-emoji {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.ha-lock-overlay {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    font-size: 10px;
+}
+
+.ha-badge-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.ha-badge-title {
+    font-size: 12px;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.ha-badge-desc {
+    font-size: 10.5px;
+    color: #64748b;
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+
+.ha-badge-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+}
+
+.ha-badge-tier-tag {
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.tier-bronze .ha-badge-tier-tag { background: #fef3c7; color: #b45309; }
+.tier-silver .ha-badge-tier-tag { background: #f1f5f9; color: #475569; }
+.tier-gold .ha-badge-tier-tag { background: #fef9c3; color: #a16207; }
+.tier-platinum .ha-badge-tier-tag { background: #e0f2fe; color: #0369a1; }
+.tier-titan .ha-badge-tier-tag { background: #fae8ff; color: #701a75; }
+
+.ha-badge-xp {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.ha-badge-unlocked-date {
+    font-size: 8.5px;
+    color: #047857;
+    margin-top: 3px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   4. RANG-LISTE / LEADERBOARD (KOMPAKT & SERIÖS)
+   ========================================================================== */
+.ha-leaderboard-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.ha-leaderboard-title {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    color: #0f172a;
+}
+
+.ha-podium-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-top: 8px;
+}
+
+.ha-podium-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+}
+
+.ha-podium-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 2px;
+}
+
+.slot-1 .ha-podium-avatar {
+    width: 42px;
+    height: 42px;
+    border-color: #facc15;
+}
+
+.ha-crown {
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 1px;
+}
+
+.ha-podium-medal {
+    font-size: 13px;
+}
+
+.ha-podium-name {
+    font-size: 10.5px;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin-top: 1px;
+}
+
+.ha-podium-xp {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 3px;
+}
+
+.ha-podium-bar {
+    width: 100%;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px 4px 0 0;
+}
+
+.bar-1 { height: 48px; background: linear-gradient(180deg, #facc15 0%, #eab308 100%); }
+.bar-2 { height: 35px; background: linear-gradient(180deg, #94a3b8 0%, #64748b 100%); }
+.bar-3 { height: 24px; background: linear-gradient(180deg, #f97316 0%, #ea580c 100%); }
+
+.ha-leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ha-leaderboard-table th,
+.ha-leaderboard-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 11px;
+}
+
+.ha-leaderboard-table th {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 700;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ha-table-user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ha-table-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+}
+
+.ha-rank-badge {
+    font-weight: 700;
+    font-size: 10.5px;
+    color: #64748b;
+}
+
+.rank-1 { color: #eab308; font-size: 12px; }
+.rank-2 { color: #64748b; font-size: 12px; }
+.rank-3 { color: #ea580c; font-size: 12px; }
+
+.ha-level-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-right: 3px;
+}
+
+.ha-title-desc {
+    font-size: 10.5px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   5. PRÜF-MASKE
+   ========================================================================== */
+.ha-verify-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    max-width: 520px;
+    margin: 16px auto;
+}
+
+.ha-verify-title {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.ha-verify-subtitle {
+    font-size: 11.5px;
+    color: #64748b;
+    margin: 0 0 12px;
+}
+
+.ha-input-group {
+    display: flex;
+    gap: 6px;
+}
+
+.ha-verify-input {
+    flex-grow: 1;
+    padding: 6px 9px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.ha-verify-submit {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 11.5px;
+}
+
+.ha-verify-submit:hover {
+    background: #1d4ed8;
+}
+
+.ha-verify-result {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.ha-verify-result.is-valid {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+}
+
+.ha-verify-result.is-invalid {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+}
+
+.ha-seal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.ha-verified-seal {
+    font-size: 20px;
+}
+
+.ha-seal-text h4 {
+    margin: 0;
+    color: #15803d;
+    font-size: 13px;
+}
+
+.ha-seal-sub {
+    font-size: 10.5px;
+    color: #166534;
+}
+
+.ha-cert-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 6px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dcfce7;
+}
+
+.ha-detail-item {
+    font-size: 11px;
+}
+
+.ha-detail-lbl {
+    display: block;
+    color: #64748b;
+    font-size: 9.5px;
+}
+
+.ha-detail-val.code { font-family: monospace; color: #2563eb; }
+.ha-detail-val.grade { color: #d97706; font-weight: 700; }
+.ha-detail-val.status-ok { color: #15803d; }
+
+.ha-cert-svg-preview {
+    margin-top: 12px;
+}
+
+.ha-svg-box {
+    max-width: 100%;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+/* ==========================================================================
+   6. CELEBRATION TOASTS
+   ========================================================================== */
+.ha-toast-container {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ha-toast {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: haSlideIn 0.3s ease-out;
+    border-left: 3px solid #2563eb;
+    font-size: 11.5px;
+}
+
+@keyframes haSlideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
